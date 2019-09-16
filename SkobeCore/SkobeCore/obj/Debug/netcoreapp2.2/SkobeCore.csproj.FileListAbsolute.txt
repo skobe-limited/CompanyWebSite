@@ -1,0 +1,14 @@
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\bin\Debug\netcoreapp2.2\SkobeCore.deps.json
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\bin\Debug\netcoreapp2.2\SkobeCore.runtimeconfig.json
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\bin\Debug\netcoreapp2.2\SkobeCore.runtimeconfig.dev.json
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\bin\Debug\netcoreapp2.2\SkobeCore.dll
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\bin\Debug\netcoreapp2.2\SkobeCore.pdb
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.csprojAssemblyReference.cache
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.csproj.CoreCompileInputs.cache
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.RazorAssemblyInfo.cache
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.RazorAssemblyInfo.cs
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.AssemblyInfoInputs.cache
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.AssemblyInfo.cs
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.RazorTargetAssemblyInfo.cache
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.dll
+C:\_projects\skobe.co.uk\SkobeCore\SkobeCore\obj\Debug\netcoreapp2.2\SkobeCore.pdb

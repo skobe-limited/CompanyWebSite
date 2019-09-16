@@ -1,0 +1,127 @@
+﻿<!doctype html>
+<html lang="en"  ng-app="app">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+	<script src="mainCtrl.js"></script>
+	<style>
+		label{
+			font-weight:500;
+			font-size:smaller;
+			display:inline-block;
+			color:darkred;
+			margin-right:10px;
+		}
+		label::after{content:': '}
+		.padtd {
+			padding: 40px 60px 0 60px !important;
+		}
+		.backButton{
+			position:absolute;
+			top:40px;left:40px;
+		}
+		.footer {
+			display: none;
+		}
+
+		@media print {
+			body {
+				-webkit-print-color-adjust: exact;
+				font-size:larger;
+			}
+			.footer {
+				display:block;
+				position: absolute;
+				bottom: 40px;
+				left: 60px;
+			}
+			.backButton{display:none;}
+		}
+
+	</style>
+	<title>Invoice</title>
+</head>
+<body ng-controller="viewCtrl">
+	<a href="./" class="btn btn-primary backButton"><i class="fa fa-chevron-left"></i> Invoice List</a>
+	<table style="width:100%;background-color:#e6e6e6;border-bottom:#000000 6px solid;">
+		<tr>
+			<td class="padtd">
+				<img src="logo.png" style="height:100px;" />
+			</td>
+			<td class="text-right padtd">
+				<p><strong>{{invoiceDefaults.CompanyName}}</strong></p>
+				<p>{{invoiceDefaults.Address}}</p>
+				<p>Company Reg Nr: {{invoiceDefaults.CompanyRegNr}}<br />{{invoiceDefaults.WebUrl}}<br />{{invoiceDefaults.Phone}}</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text-center" style="padding-bottom:20px;	"><h1>INVOICE</h1></td>
+		</tr>
+	</table>
+
+	<div style="padding:60px 60px 20px 60px;">
+		<table style="width:100%;">
+			<tr>
+				<td style="vertical-align:top">
+					<strong>Billed To</strong>
+					<br />{{invoice.BilledTo}}
+					<br />{{invoice.BilledToAddress}}
+					<span ng-show="invoice.BilledToCompanyRegNr>0"><br />Company Reg Nr: {{invoice.BilledToCompanyRegNr}}</span>
+				</td>
+				<td class="text-right"  style="vertical-align:top">
+					<p>
+						<strong>Invoice Number</strong>
+						<br />{{invoice.InvoiceNumber}}
+					</p>
+					<p>
+						<strong>Date of Issue</strong>
+						<br />{{invoice.DateOfIssue|date:'dd/MM/yyyy'}}
+					</p>
+				</td>
+			</tr>
+		</table>
+		<table style="width:100%;margin-top:100px;">
+			<tr>
+				<td style="border-bottom:#000000 1px solid;font-weight:bold;">Description</td>
+				<td style="width:100px;border-bottom:#000000 1px solid;font-weight:bold;text-align:center;">Rate</td>
+				<td style="width:100px;border-bottom:#000000 1px solid;font-weight:bold;text-align:center;">Qty</td>
+				<td style="width:100px;border-bottom:#000000 1px solid;font-weight:bold;text-align:center;">Line Total</td>
+			</tr>
+			<tr ng-repeat="line in invoice.details">
+				<td style="padding-top:10px;padding-bottom:10px;">{{line.Description}}</td>
+				<td style="padding-top:10px;padding-bottom:10px;text-align:center">£{{line.Rate}}</td>
+				<td style="padding-top:10px;padding-bottom:10px;text-align:center">{{line.Quantity}}</td>
+				<td style="padding-top:10px;padding-bottom:10px;text-align:center">£{{(line.Rate*line.Quantity)|number:2}}</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="border-top:#000000 1px solid;font-weight:bold;">TOTAL</td>
+				<td style="width:100px;border-top:#000000 1px solid;font-weight:bold;text-align:center;">£{{calcTotal()|number:2}}</td>
+			</tr>
+
+		</table>
+		<div class="footer">
+			<p>
+				<br /><strong>Due Date: </strong>{{invoice.DueDate|date:'dd/MM/yyyy'}}
+				<br /><strong>Bank Name: </strong>{{invoiceDefaults.BankName}}
+				<br /><strong>Account Name: </strong>{{invoiceDefaults.BankAccountName}}
+				<br /><strong>Sort Code: </strong>{{invoiceDefaults.SortCode}}
+				<br /><strong>Account Number: </strong>{{invoiceDefaults.BankAccountNr}}
+				<br /><strong>IBAN/SWIFT: </strong>{{invoiceDefaults.IBAN}}
+			</p>
+		</div>
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

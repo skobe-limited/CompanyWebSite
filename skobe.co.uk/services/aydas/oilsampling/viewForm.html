@@ -1,0 +1,282 @@
+﻿<!doctype html>
+<html lang="en"  ng-app="app">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+	<script src="mainCtrl.js"></script>
+	<style>
+		label{
+			font-weight:500;
+			font-size:smaller;
+			display:inline-block;
+			color:darkred;
+			margin-right:10px;
+		}
+		label::after{content:': '}
+	</style>
+	<title>Aydas Oil Sampling Form</title>
+</head>
+<body ng-controller="viewCtrl">
+
+	<div class="card">
+		<h5 class="card-header">OIL SAMPLING FORM</h5>
+
+		<!--Site Data-->
+		<div class="card-body">
+			<h5 class="card-title">Site Information</h5>
+
+			<div class="row">
+
+				<div class="col-sm">
+					<label>Customer Name</label><span>{{s.CustomerName}}</span>
+				</div>
+
+				<div class="col-sm">
+					<label>Name of the substation</label>
+					<span>{{s.SubstationName}}</span>
+				</div>
+
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm">
+					<label>Country</label>
+					<span>{{s.Country}}</span>
+				</div>
+
+				<div class="col-sm">
+					<label>Sampling Date</label>
+					<span>{{s.SamplingDate|date:'dd/MM/yyyy'}}</span>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm">
+					<label>Company Name</label>
+					<span>{{s.CompanyName}}</span>
+				</div>
+
+				<div class="col-sm">
+					<label>Contact Person Name</label>
+					<span>{{s.ContactPersonName}}</span>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm">
+					<label>Phone</label>
+					<span>{{s.Phone}}</span>
+				</div>
+
+				<div class="col-sm">
+					<label>E-Mail</label>
+					<span>{{s.Email}}</span>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm">
+					<label>Company Address</label>
+					<span>{{s.CompanyAddress}}</span>
+				</div>
+			</div>
+
+		</div>
+
+		<!--Samples-->
+		<div class="card-body">
+			<h5 class="card-title">Samples</h5>
+
+			<div class="card">
+				<div class="card-header">
+					<ul class="nav nav-tabs card-header-tabs">
+						<li class="nav-item" ng-repeat="sample in s.samples">
+							<a class="nav-link" ng-class="{'active':$first}" data-toggle="tab" href="" data-target="#tab{{$index}}">Sample {{$index+1}}</a>
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show" ng-class="{'active':$first}" ng-repeat="sample in s.samples" id="tab{{$index}}" role="tabpanel">
+
+						<!--Sample Data-->
+						<div class="card-body">
+							<h5 class="card-title">Sample Data</h5>
+
+							<div class="row">
+								<div class="col-sm">
+									<label>Sample Nr (if any)</label>
+									<span>{{sample.SampleNr}}</span>
+								</div>
+								<div class="col-sm">
+									<label>Oil Temperature when sampling</label>
+									<span>{{sample.OilTemp}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Ambient Temperature when sampling</label>
+									<span>{{sample.AmbientTemp}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Oil Name</label>
+									<span>{{sample.OilName}}</span>
+								</div>
+
+							</div>
+
+
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Report Language</label>
+									<span>{{sample.Language}}</span>
+								</div>
+
+
+								<div class="col-sm" ng-show="sample.Language=='Other'">
+									<label>Please specify other language</label>
+									<span>{{sample.LanguageOther}}</span>
+								</div>
+
+							</div>
+
+
+						</div>
+
+						<!--Oil Report-->
+						<div class="card-body">
+							<h5 class="card-title">Oil Report</h5>
+
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Oil Report Standard</label>
+									<span>{{sample.OilReportStandard}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Place of sampling</label>
+									<span>{{sample.PlaceOfSampling}}</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<!--Transformer Data-->
+						<div class="card-body">
+							<h5 class="card-title">Transformer Data</h5>
+
+							<div class="row">
+								<div class="col-sm">
+									<label>Rating (MVA/MVAr)</label>
+									<span>{{sample.Rating}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Primary voltage (kV)</label>
+									<span>{{sample.PrimaryVoltage}}</span>
+								</div>
+
+
+								<div class="col-sm">
+									<label>Secondary Voltage (kV)</label>
+									<span>{{sample.SecondaryVoltage}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+
+
+								<div class="col-sm">
+									<label>Frequency (Hz)</label>
+									<span>{{sample.Frequency}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Serial number</label>
+									<span>{{sample.SerialNumber}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Year of Manufacture</label>
+									<span>{{sample.YearOfManufacture}}</span>
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Off load tap changer</label>
+									<span>{{sample.OffLoad}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>On load tap changer</label>
+									<span>{{sample.OnLoad}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Oil Age</label>
+									<span>{{sample.OilAge}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm">
+									<label>Cooling Type</label>
+									<span>{{sample.CoolingType}}</span>
+								</div>
+
+
+								<div class="col-sm">
+									<label>Oil Type</label>
+									<span>{{sample.OilType}}</span>
+								</div>
+
+
+								<div class="col-sm">
+									<label>Equipment Type</label>
+									<span>{{sample.EquipmentType}}</span>
+								</div>
+							</div>
+
+
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
