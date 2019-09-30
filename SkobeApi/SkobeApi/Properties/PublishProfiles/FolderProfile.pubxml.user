@@ -157,10 +157,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/SkobeApi.dll">
-      <publishTime>09/17/2019 00:28:10</publishTime>
+      <publishTime>09/30/2019 15:26:18</publishTime>
     </File>
     <File Include="bin/SkobeApi.pdb">
-      <publishTime>09/17/2019 00:28:10</publishTime>
+      <publishTime>09/30/2019 15:26:18</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>11/28/2018 13:00:36</publishTime>

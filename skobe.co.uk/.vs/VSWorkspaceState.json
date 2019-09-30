@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\invoice"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\invoice\\mainCtrl.js",
   "PreviewInSolutionExplorer": false
 }

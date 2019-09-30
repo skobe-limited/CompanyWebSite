@@ -33,8 +33,7 @@
 					<th class="text-center"><a href="addInvoice.html" title="Add Invoice"><i class="fa fa-plus"></i></a></th>
 					<th class="text-center">Invoice Number</th>
 					<th>Billed To</th>
-					<th class="text-center">Date Of Issue</th>
-					<th class="text-center">Due Date</th>
+					<th class="text-center">Invoice Date</th>
 					<th class="text-center">Invoice Total</th>
 					<th class="text-center">Status</th>
 				</tr>
@@ -42,8 +41,7 @@
 					<td class="text-center"><a href="viewInvoice.html?InvoiceNumber={{invoice.InvoiceNumber}}"><i class="fa fa-eye"></i></a></td>
 					<td class="text-center">{{invoice.InvoiceNumber}}</td>
 					<td>{{invoice.BilledTo}}</td>
-					<td class="text-center">{{invoice.DateOfIssue|date:'dd/MM/yyyy'}}</td>
-					<td class="text-center">{{invoice.DueDate|date:'dd/MM/yyyy'}}</td>
+					<td class="text-center">{{invoice.InvoiceDate|date:'dd/MM/yyyy'}}</td>
 					<td class="text-center">{{invoice.InvoiceTotal|number:2}}</td>
 					<td class="text-center">{{invoice.Status}}</td>
 				</tr>

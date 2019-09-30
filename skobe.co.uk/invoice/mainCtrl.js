@@ -53,7 +53,8 @@
 		$scope.submitButtonText = "Submit";
 		$scope.itemIndex = -1;
 		$scope.invoice = {
-			details: []
+			details: [],
+			InvoiceDate: new Date()
 		};
 		// #endregion
 
@@ -139,11 +140,14 @@
 			CompanyRegNr: "12000753",
 			WebUrl: "http://skobe.co.uk",
 			Phone: "+44 7984 631 138",
-			BankAccountName: "Cagatay Bulanik",
+			BankAccountName: "Skobe Limited",
 			BankName: "Barclays",
-			SortCode: "20-81-00",
-			BankAccountNr: "73252973",
-			IBAN: "GB12 BUKB 20810073252973 / BARCGB22",
+			SortCode: "20-84-13",
+			BankAccountNr: "03901998",
+			IBAN: "GB72 BUKB 2084 1303 9019 98",
+			SwiftCode: "BUKBGB22"
+			//IBAN: "GB12 BUKB 20810073252973 / BARCGB22",
+			
 		};
 		// #endregion
 

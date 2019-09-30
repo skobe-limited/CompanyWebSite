@@ -26,8 +26,8 @@ namespace SkobeApi.Controllers
 			public string BilledTo { get; set; }
 			public string BilledToAddress { get; set; }
 			public int BilledToCompanyRegNr { get; set; }
-			public DateTime DateOfIssue { get; set; }
-			public DateTime DueDate { get; set; }
+			public DateTime InvoiceDate { get; set; }
+
 			public int Status { get; set; }
 			public List<InvoiceDetail> details { get; set; }
 		}
@@ -45,8 +45,7 @@ namespace SkobeApi.Controllers
 			public string BilledTo { get; set; }
 			public string BilledToAddress { get; set; }
 			public int BilledToCompanyRegNr { get; set; }
-			public DateTime DateOfIssue { get; set; }
-			public DateTime DueDate { get; set; }
+			public DateTime InvoiceDate { get; set; }
 			public int Status { get; set; }
 			public double InvoiceTotal { get; set; }
 		}
@@ -84,10 +83,10 @@ namespace SkobeApi.Controllers
 			if (inv != null && inv.details!=null && inv.details.Count>0)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.Append(" SET DATEFORMAT DMY; ");
-				sb.Append("DECLARE @InvoiceNumber int;");
-				sb.Append("\n INSERT INTO [skobeInvoice] (BilledTo,BilledToAddress,BilledToCompanyRegNr,DateOfIssue,DueDate,Status) ");
-				sb.Append("\n VALUES ('" + h.Capitalize(h.Clean(inv.BilledTo)) + "', '" + h.Capitalize(h.Clean(inv.BilledToAddress)) + "', " + inv.BilledToCompanyRegNr + ", '" + inv.DateOfIssue.ToString() + "','" + inv.DueDate.ToString() + "',"+inv.Status+")");
+				sb.Append(" DECLARE @InvoiceNumber int;");
+				//sb.Append(" SET LANGUAGE 'turkish'; SET DATEFORMAT DMY; ");
+				sb.Append("\n INSERT INTO [skobeInvoice] (BilledTo,BilledToAddress,BilledToCompanyRegNr,InvoiceDate,Status) ");
+				sb.Append("\n VALUES ('" + h.Capitalize(h.Clean(inv.BilledTo)) + "', '" + h.Capitalize(h.Clean(inv.BilledToAddress)) + "', " + inv.BilledToCompanyRegNr + ", '" + inv.InvoiceDate.ToString("yyyy-MM-dd") + "',"+inv.Status+")");
 				sb.Append("\n SET @InvoiceNumber=@@IDENTITY; ");
 				for (int i = 0; i < inv.details.Count; i++)
 				{

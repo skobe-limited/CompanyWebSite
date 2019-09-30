@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en"  ng-app="app">
+<html lang="en"  ng-app="app" ng-controller="viewCtrl">
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -45,9 +45,9 @@
 		}
 
 	</style>
-	<title>Invoice</title>
+	<title>Invoice {{invoice.InvoiceNumber}}</title>
 </head>
-<body ng-controller="viewCtrl">
+<body>
 	<a href="./" class="btn btn-primary backButton"><i class="fa fa-chevron-left"></i> Invoice List</a>
 	<table style="width:100%;background-color:#e6e6e6;border-bottom:#000000 6px solid;">
 		<tr>
@@ -80,8 +80,8 @@
 						<br />{{invoice.InvoiceNumber}}
 					</p>
 					<p>
-						<strong>Date of Issue</strong>
-						<br />{{invoice.DateOfIssue|date:'dd/MM/yyyy'}}
+						<strong>Invoice Date</strong>
+						<br />{{invoice.InvoiceDate|date:'dd/MM/yyyy'}}
 					</p>
 				</td>
 			</tr>
@@ -107,12 +107,12 @@
 		</table>
 		<div class="footer">
 			<p>
-				<br /><strong>Due Date: </strong>{{invoice.DueDate|date:'dd/MM/yyyy'}}
 				<br /><strong>Bank Name: </strong>{{invoiceDefaults.BankName}}
 				<br /><strong>Account Name: </strong>{{invoiceDefaults.BankAccountName}}
 				<br /><strong>Sort Code: </strong>{{invoiceDefaults.SortCode}}
 				<br /><strong>Account Number: </strong>{{invoiceDefaults.BankAccountNr}}
-				<br /><strong>IBAN/SWIFT: </strong>{{invoiceDefaults.IBAN}}
+				<br /><strong>IBAN: </strong>{{invoiceDefaults.IBAN}}
+				<br /><strong>Swift Code: </strong>{{invoiceDefaults.SwiftCode}}
 			</p>
 		</div>
 	</div>
