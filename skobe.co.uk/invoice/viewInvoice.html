@@ -95,7 +95,7 @@
 			</tr>
 			<tr ng-repeat="line in invoice.details">
 				<td style="padding-top:10px;padding-bottom:10px;">{{line.Description}}</td>
-				<td style="padding-top:10px;padding-bottom:10px;text-align:center">£{{line.Rate}}</td>
+				<td style="padding-top:10px;padding-bottom:10px;text-align:center">£{{line.Rate|number:2}}</td>
 				<td style="padding-top:10px;padding-bottom:10px;text-align:center">{{line.Quantity}}</td>
 				<td style="padding-top:10px;padding-bottom:10px;text-align:center">£{{(line.Rate*line.Quantity)|number:2}}</td>
 			</tr>

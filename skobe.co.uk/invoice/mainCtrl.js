@@ -136,7 +136,8 @@
 		// #region INITIALS
 		$scope.invoiceDefaults = {
 			CompanyName: "Skobe Limited",
-			Address: "Unit 1j Leroy House, 436 Essex Road, N1 3QP London, England",
+			Address: "10 Selworthy Drive, ST17 0PN Stafford Staffordshire, England",
+			//Address: "Unit 1j Leroy House, 436 Essex Road, N1 3QP London, England",
 			CompanyRegNr: "12000753",
 			WebUrl: "http://skobe.co.uk",
 			Phone: "+44 7984 631 138",

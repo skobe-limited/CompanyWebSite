@@ -42,7 +42,7 @@
 					<td class="text-center">{{invoice.InvoiceNumber}}</td>
 					<td>{{invoice.BilledTo}}</td>
 					<td class="text-center">{{invoice.InvoiceDate|date:'dd/MM/yyyy'}}</td>
-					<td class="text-center">{{invoice.InvoiceTotal|number:2}}</td>
+					<td class="text-center">£{{invoice.InvoiceTotal|number:2}}</td>
 					<td class="text-center">{{invoice.Status}}</td>
 				</tr>
 			</table>
