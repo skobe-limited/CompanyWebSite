@@ -124,6 +124,14 @@
 			});
 		}
 
+		$scope.total = function () {
+			var tot = 0;
+			for (var i = 0; i < $scope.invoiceList.length; i++) {
+				tot += $scope.invoiceList[i].InvoiceTotal;
+			}
+			return tot;
+		}
+
 		$scope.init = function () {
 			$scope.loadList();
 		};

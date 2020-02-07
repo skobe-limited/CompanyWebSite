@@ -45,6 +45,11 @@
 					<td class="text-center">£{{invoice.InvoiceTotal|number:2}}</td>
 					<td class="text-center">{{invoice.Status}}</td>
 				</tr>
+				<tr>
+					<td colspan="4">TOTAL</td>
+					<td class="text-center">£{{total()|number:2}}</td>
+					<td class="text-center"></td>
+				</tr>
 			</table>
 		</div>
 
