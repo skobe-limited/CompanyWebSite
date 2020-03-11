@@ -48,11 +48,12 @@ Table OF Contents
 /* -- typography -- */
 
 body {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    color: #868F9B;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	overflow-x: hidden;
+	/*color: #868F9B;*/
+	color: #333333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -128,8 +129,8 @@ ul, ol {
 }
 
 .md-padding {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .sm-padding {
@@ -1476,9 +1477,9 @@ header {
     margin-bottom: 40px;
 }
 
-.footer-logo>a>img {
-    max-height: 80px;
-}
+	.footer-logo > a > img {
+		max-height: 80px;
+	}
 
 .footer-follow {
     text-align: center;
@@ -1714,11 +1715,11 @@ header {
 
 @keyframes rotation {
 	from {
-		transform: rotate(359deg);
+		transform: rotate(0deg);
 	}
 
 	to {
-		transform: rotate(0deg);
+		transform: rotate(359deg);
 	}
 }
 
