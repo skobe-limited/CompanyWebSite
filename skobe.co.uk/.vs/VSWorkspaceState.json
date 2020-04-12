@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\projects",
+    "\\projects\\bptl.co.uk",
+    "\\projects\\bptl.co.uk\\css"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\projects\\bptl.co.uk\\css\\style.css",
   "PreviewInSolutionExplorer": false
 }
