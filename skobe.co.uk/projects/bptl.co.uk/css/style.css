@@ -613,6 +613,32 @@ header {
     /*text-align: center;*/
 }
 
+@media only screen and (max-width: 767px) {
+	#home .home-wrapper {
+		top: 6%;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+		/*text-align: center;*/
+	}
+
+	#transformers{
+		margin-top:360px;
+	}
+	.bg-img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: -400px;
+		z-index: -1;
+		background-position: bottom;
+		background-size: cover;
+		background-attachment: scroll;
+	}
+}
+
+
 /*.home-content h1 {
   text-transform: uppercase;
 }*/
