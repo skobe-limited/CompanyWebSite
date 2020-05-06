@@ -4,7 +4,7 @@
 	///////////////////////////
 	// Preloader
 	$(window).on('load', function() {
-		$("#preloader").delay(1000).fadeOut();
+		$("#preloader").delay(600).fadeOut();
 	});
 
 	///////////////////////////
@@ -24,6 +24,15 @@
 		}, 600);
 	});
 
+	$(".scroller a[href^='#']").on('click', function (e) {
+		e.preventDefault();
+		var hash = this.hash;
+		$('html, body').animate({
+			scrollTop: $(this.hash).offset().top
+		}, 600);
+	});
+
+
 	$('#back-to-top').on('click', function(){
 		$('body,html').animate({
 			scrollTop: 0
@@ -35,6 +44,11 @@
 	$('#nav .nav-collapse').on('click', function() {
 		$('#nav').toggleClass('open');
 	});
+
+	$('#nav li').on('click', function () {
+		$('#nav').toggleClass('open');
+	});
+
 
 	///////////////////////////
 	// Mobile dropdown
@@ -48,24 +62,11 @@
 		var wScroll = $(this).scrollTop();
 
 		// Fixed nav
-		//wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
+		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
 
 		// Back To Top Appear
 		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
 	});
-
-	$('#modal').on('shown.bs.modal', function () {
-		console.log("modal opened");
-		$('#close-modal').fadeIn();
-		$('#back-to-top').fadeOut();
-	})
-
-	$('#modal').on('hidden.bs.modal', function () {
-		console.log("modal closed");
-		$('#close-modal').fadeOut();
-		$('#back-to-top').fadeIn();
-	})
-
 
 	///////////////////////////
 	// magnificPopup
@@ -86,39 +87,6 @@
 		autoplay : true,
 		animateOut: 'fadeOut'
 	});
-
-	$('#about-slider2').owlCarousel({
-		items: 1,
-		loop: true,
-		margin: 15,
-		nav: true,
-		navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		dots: true,
-		autoplay: true,
-		animateOut: 'fadeOut'
-	});
-	$('#about-slider3').owlCarousel({
-		items: 1,
-		loop: true,
-		margin: 15,
-		nav: true,
-		navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		dots: true,
-		autoplay: true,
-		animateOut: 'fadeOut'
-	});
-
-	$('#products-slider').owlCarousel({
-		items: 1,
-		loop: true,
-		margin: 15,
-		nav: true,
-		navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		dots: true,
-		autoplay: true,
-		animateOut: 'fadeOut'
-	});
-
 
 	$('#testimonial-slider').owlCarousel({
 		loop:true,
