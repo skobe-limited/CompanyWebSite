@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\css",
+    "\\docs\\css",
+    "\\docs\\fonts",
     "\\projects",
-    "\\projects\\bptl.co.uk",
-    "\\projects\\bptl.co.uk\\css"
+    "\\projects\\bptl.co.uk\\css",
+    "\\projects\\bptl.co.uk\\products",
+    "\\projects\\inspecta",
+    "\\projects\\inspecta\\css",
+    "\\projects\\inspecta\\js"
   ],
-  "SelectedNode": "\\projects\\bptl.co.uk\\css\\style.css",
+  "SelectedNode": "\\css\\style.css",
   "PreviewInSolutionExplorer": false
 }
