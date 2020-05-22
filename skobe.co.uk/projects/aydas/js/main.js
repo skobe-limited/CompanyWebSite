@@ -64,6 +64,7 @@
 
 		// Back To Top Appear
 		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
+		wScroll > 700 ? $('#fixedtel').fadeIn() : $('#fixedtel').fadeOut();
 	});
 
 	$('#modal').on('shown.bs.modal', function () {

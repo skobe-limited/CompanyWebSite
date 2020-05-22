@@ -54,7 +54,7 @@
 
 				<div class="col-sm">
 					<label>Sampling Date</label>
-					<span>{{s.SamplingDate|date:'dd/MM/yyyy'}}</span>
+					<span>{{s.SamplingDate}}</span>
 				</div>
 			</div>
 
@@ -121,7 +121,7 @@
 									<span>{{sample.SampleNr}}</span>
 								</div>
 								<div class="col-sm">
-									<label>Oil Temperature when sampling</label>
+									<label>Oil Temperature when sampling (°C)</label>
 									<span>{{sample.OilTemp}}</span>
 								</div>
 							</div>
@@ -129,7 +129,12 @@
 							<div class="row">
 
 								<div class="col-sm">
-									<label>Ambient Temperature when sampling</label>
+									<label>Ambient Temperature when sampling (°C)</label>
+									<span>{{sample.AmbientTemp}}</span>
+								</div>
+
+								<div class="col-sm">
+									<label>Humidity (%)</label>
 									<span>{{sample.AmbientTemp}}</span>
 								</div>
 
@@ -140,6 +145,21 @@
 
 							</div>
 
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Requested Tests</label>
+									<span>{{sample.RequestedTests}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col-sm">
+									<label>Reason for Sampling</label>
+									<span>{{sample.ReasonForSampling}}</span>
+								</div>
+							</div>
 
 							<div class="row">
 
@@ -185,7 +205,7 @@
 
 							<div class="row">
 								<div class="col-sm">
-									<label>Rating (MVA/MVAr)</label>
+									<label>Rating (kVA/ KVAr)</label>
 									<span>{{sample.Rating}}</span>
 								</div>
 
@@ -224,7 +244,7 @@
 							<div class="row">
 
 								<div class="col-sm">
-									<label>Off load tap changer</label>
+									<label>Off circuit tap changer</label>
 									<span>{{sample.OffLoad}}</span>
 								</div>
 

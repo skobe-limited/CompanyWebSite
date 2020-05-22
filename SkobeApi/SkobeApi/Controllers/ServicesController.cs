@@ -25,7 +25,7 @@ namespace SkobeApi.Controllers
             public string CustomerName { get; set; }
             public string SubstationName { get; set; }
             public string Country { get; set; }
-            public DateTime SamplingDate { get; set; }
+            public string SamplingDate { get; set; }
             public string CompanyName { get; set; }
             public string ContactPersonName { get; set; }
             public string Phone { get; set; }
@@ -57,6 +57,9 @@ namespace SkobeApi.Controllers
 			public string CoolingType { get; set; }
 			public string OilType { get; set; }
 			public string EquipmentType { get; set; }
+			public string Humidity { get; set; }
+			public string RequestedTests { get; set; }
+			public string ReasonForSampling { get; set; }
 		}
 
 		[HttpGet]
@@ -88,12 +91,12 @@ namespace SkobeApi.Controllers
                 StringBuilder sb = new StringBuilder();
 				sb.Append("DECLARE @Id int;");
 				sb.Append("\n INSERT INTO [Services-Aydas-OilSampling] (RecordDate, CustomerName, SubstationName, Country, SamplingDate, CompanyName, ContactPersonName, Phone, Email, CompanyAddress) ");
-				sb.Append("\n VALUES (GETDATE(),'" + h.Clean(os.CustomerName) + "', '" + h.Clean(os.SubstationName) + "', '" + h.Clean(os.Country) + "', '" + os.SamplingDate.ToString() + "', '" + h.Clean(os.CompanyName) + "', '" + h.Clean(os.ContactPersonName) + "', '" + h.Clean(os.Phone) + "', '" + h.Clean(os.Email) + "', '" + h.Clean(os.CompanyAddress) + "')");
+				sb.Append("\n VALUES (GETDATE(),'" + h.Clean(os.CustomerName) + "', '" + h.Clean(os.SubstationName) + "', '" + h.Clean(os.Country) + "', '" + h.Clean(os.SamplingDate) + "', '" + h.Clean(os.CompanyName) + "', '" + h.Clean(os.ContactPersonName) + "', '" + h.Clean(os.Phone) + "', '" + h.Clean(os.Email) + "', '" + h.Clean(os.CompanyAddress) + "')");
 				sb.Append("\n SET @Id=@@IDENTITY; ");
 				for (int i = 0; i < os.samples.Count; i++)
 				{
-					sb.Append("\n INSERT INTO [Services-Aydas-OilSampling-Detail] (SampleId, SampleNr, OilTemp, AmbientTemp, OilName, Language, LanguageOther, OilReportStandard, PlaceOfSampling, Rating, PrimaryVoltage, SecondaryVoltage, Frequency, SerialNumber, YearOfManufacture, OffLoad, OnLoad, OilAge, CoolingType, OilType, EquipmentType) ");
-					sb.Append("\n VALUES (@Id,'" + h.Clean(os.samples[i].SampleNr) + "', '" + h.Clean(os.samples[i].OilTemp) + "', '" + h.Clean(os.samples[i].AmbientTemp) + "', '" + h.Clean(os.samples[i].OilName) + "', '" + h.Clean(os.samples[i].Language) + "', '" + h.Clean(os.samples[i].LanguageOther) + "', '" + h.Clean(os.samples[i].OilReportStandard) + "', '" + h.Clean(os.samples[i].PlaceOfSampling) + "', '" + h.Clean(os.samples[i].Rating) + "', '" + h.Clean(os.samples[i].PrimaryVoltage) + "', '" + h.Clean(os.samples[i].SecondaryVoltage) + "', '" + h.Clean(os.samples[i].Frequency) + "', '" + h.Clean(os.samples[i].SerialNumber) + "', '" + h.Clean(os.samples[i].YearOfManufacture) + "', '" + h.Clean(os.samples[i].OffLoad) + "', '" + h.Clean(os.samples[i].OnLoad) + "', '" + h.Clean(os.samples[i].OilAge) + "', '" + h.Clean(os.samples[i].CoolingType) + "', '" + h.Clean(os.samples[i].OilType) + "', '" + h.Clean(os.samples[i].EquipmentType) + "')");
+					sb.Append("\n INSERT INTO [Services-Aydas-OilSampling-Detail] (SampleId, SampleNr, OilTemp, AmbientTemp, OilName, Language, LanguageOther, OilReportStandard, PlaceOfSampling, Rating, PrimaryVoltage, SecondaryVoltage, Frequency, SerialNumber, YearOfManufacture, OffLoad, OnLoad, OilAge, CoolingType, OilType, EquipmentType,Humidity,RequestedTests,ReasonForSampling) ");
+					sb.Append("\n VALUES (@Id,'" + h.Clean(os.samples[i].SampleNr) + "', '" + h.Clean(os.samples[i].OilTemp) + "', '" + h.Clean(os.samples[i].AmbientTemp) + "', '" + h.Clean(os.samples[i].OilName) + "', '" + h.Clean(os.samples[i].Language) + "', '" + h.Clean(os.samples[i].LanguageOther) + "', '" + h.Clean(os.samples[i].OilReportStandard) + "', '" + h.Clean(os.samples[i].PlaceOfSampling) + "', '" + h.Clean(os.samples[i].Rating) + "', '" + h.Clean(os.samples[i].PrimaryVoltage) + "', '" + h.Clean(os.samples[i].SecondaryVoltage) + "', '" + h.Clean(os.samples[i].Frequency) + "', '" + h.Clean(os.samples[i].SerialNumber) + "', '" + h.Clean(os.samples[i].YearOfManufacture) + "', '" + h.Clean(os.samples[i].OffLoad) + "', '" + h.Clean(os.samples[i].OnLoad) + "', '" + h.Clean(os.samples[i].OilAge) + "', '" + h.Clean(os.samples[i].CoolingType) + "', '" + h.Clean(os.samples[i].OilType) + "', '" + h.Clean(os.samples[i].EquipmentType) + "', '" + h.Clean(os.samples[i].Humidity) + "', '" + h.Clean(os.samples[i].RequestedTests) + "', '" + h.Clean(os.samples[i].ReasonForSampling) + "')");
 				}
 				sb.Append("\n SELECT @Id as Id ");
 				int newId=Convert.ToInt32(db.ExecuteScalar(sb.ToString()));

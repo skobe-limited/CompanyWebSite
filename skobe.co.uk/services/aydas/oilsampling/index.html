@@ -61,7 +61,7 @@
 					<div class="col-sm">
 						<div class="form-group">
 							<label>Sampling Date</label>
-							<input required type="date" class="form-control" ng-model="s.SamplingDate">
+							<input required type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="s.SamplingDate">
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 
 							<div class="col-sm">
 								<div class="form-group">
-									<label>Oil Temperature when sampling</label>
+									<label>Oil Temperature when sampling (°C)</label>
 									<input required type="text" class="form-control" ng-model="sample.OilTemp">
 								</div>
 							</div>
@@ -198,8 +198,15 @@
 
 							<div class="col-sm">
 								<div class="form-group">
-									<label>Ambient Temperature when sampling</label>
+									<label>Ambient Temperature when sampling (°C)</label>
 									<input required type="text" class="form-control" ng-model="sample.AmbientTemp">
+								</div>
+							</div>
+
+							<div class="col-sm">
+								<div class="form-group">
+									<label>Humidity (%)</label>
+									<input required type="text" class="form-control" ng-model="sample.Humidity">
 								</div>
 							</div>
 
@@ -208,6 +215,7 @@
 									<label>Oil Name</label>
 									<select required class="form-control" ng-model="sample.OilName">
 										<option value="">--Please select--</option>
+										<option>N/A</option>
 
 										<optgroup label="NYNAS"></optgroup>
 										<option>Nynas NYTRO 10XN</option>
@@ -257,6 +265,45 @@
 							</div>
 
 						</div>
+
+						<div class="row">
+
+							<div class="col-sm">
+								<div class="form-group">
+									<label>Requested Test(s)</label>
+									<br />
+									<label ng-repeat="item in testList" class="small" style="display:inline-block;margin-right:10px;">
+										<input type="checkbox"
+											   name="selectedTests[]"
+											   value="{{item}}"
+											   ng-checked="sample.RequestedTests.indexOf(item) > -1"
+											   ng-click="toggleSelection(item)"> {{item}}
+									</label>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-sm">
+								<div class="form-group">
+									<label>Reason for Sampling</label>
+									<br />
+									<label class="radio-inline small">
+										<input type="radio" name="reasonForSampling" value="Failure" ng-model="sample.ReasonForSampling"> Failure
+									</label>
+									<label class="radio-inline small">
+										<input type="radio" name="reasonForSampling" value="Comissioning" ng-model="sample.ReasonForSampling"> Comissioning
+									</label>
+									<label class="radio-inline small">
+										<input type="radio" name="reasonForSampling" value="Manintenance" ng-model="sample.ReasonForSampling"> Manintenance
+									</label>
+								</div>
+							</div>
+
+						</div>
+
 
 
 						<div class="row">
@@ -334,7 +381,7 @@
 						<div class="row">
 							<div class="col-sm">
 								<div class="form-group">
-									<label>Rating (MVA/MVAr)</label>
+									<label>Rating (kVA/ KVAr)</label>
 									<input required type="text" class="form-control" ng-model="sample.Rating">
 								</div>
 							</div>
@@ -391,7 +438,7 @@
 
 							<div class="col-sm">
 								<div class="form-group">
-									<label>Off load tap changer</label>
+									<label>Off circuit tap changer</label>
 									<select required class="form-control" ng-model="sample.OffLoad">
 										<option>Yes</option>
 										<option>No</option>

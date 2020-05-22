@@ -56,11 +56,40 @@
 			samples: []
 		};
 
+		// Fruits
+		$scope.testList = [
+			'Routine(Breakdown Voltage, Appearance, Colour, Water Content, Acidity)',
+			'Dissolved Gas Analysis(DGA)',
+			'Furfural(Furans)',
+			'Degree of Polymerization',
+			'PCB',
+			'Interfecial Tension(IFT)',
+			'Insulation Resistivity',
+			'Dielectric Dissapation Factor(DDF)',
+			'Permitivity at 90 C'
+		];
+
+
+		// Toggle selection for a given fruit by name
+		$scope.toggleSelection = function toggleSelection(test) {
+			var idx = $scope.sample.RequestedTests.indexOf(test);
+
+			// Is currently selected
+			if (idx > -1) {
+				$scope.sample.RequestedTests.splice(idx, 1);
+			}
+
+			// Is newly selected
+			else {
+				$scope.sample.RequestedTests.push(test);
+			}
+		};
+
 		$scope.defaultSample = {
 			Language: "English",
 			OilReportStandard: "IEC Standard",
 			OffLoad: "Yes",
-			OnLoad: "Yes"
+			OnLoad: "Yes", RequestedTests:[]
 		};
 
 		$scope.sample = angular.copy($scope.defaultSample);
@@ -73,6 +102,7 @@
 		};
 
 		$scope.addSample = function () {
+			$scope.sample.RequestedTests = $scope.sample.RequestedTests.join('/');
 			if ($scope.itemIndex == -1) {
 				$scope.s.samples.push($scope.sample);
 			}
