@@ -58,16 +58,37 @@
 
 		// Fruits
 		$scope.testList = [
-			'Routine(Breakdown Voltage, Appearance, Colour, Water Content, Acidity)',
-			'Dissolved Gas Analysis(DGA)',
-			'Furfural(Furans)',
-			'Degree of Polymerization',
-			'PCB',
-			'Interfecial Tension(IFT)',
-			'Insulation Resistivity',
-			'Dielectric Dissapation Factor(DDF)',
-			'Permitivity at 90 C'
+			{ text: "DGA analysis", desc: "IEC 60567 / ASTM D3612" },
+			{ text: "Moisture", desc: "IEC 60814 / ASTM D1533" },
+			{ text: "Disruptive / Breakdown voltage", desc: "IEC 60156 / ASTM D877/1816" },
+			{ text: "Dielectric dissipation factor (tan d)", desc: "IEC 60247 / ASTM D924" },
+			{ text: "Determination of elements (metal, sulphur)", desc: "DIN 51399-1" },
+			{ text: "DC resistivity", desc: "IEC 60247 / ASTM D1169" },
+			{ text: "Solids content, overall", desc: "IEC 60422, Annex C" },
+			{ text: "Determination of sludge", desc: "IEC 60422, Annex C" },
+			{ text: "Density 15 C", desc: "ISO 12185 or 3675 / ASTM D1298" },
+			{ text: "Visual inspection", desc: "-" },
+			{ text: "Neutralization number / acidity", desc: "IEC 62021 / ASTM D974" },
+			{ text: "Interfacial tension", desc: "ASTM D 971-12" },
+			{ text: "Viscosity (40 C, 100 C)", desc: "ISO 3104 / ASTM D445" },
+			{ text: "Oxidation stability", desc: "IEC 61125 / ASTM D2440" },
+			{ text: "Color index", desc: "ISO 2049 / ASTM D1500" },
+			{ text: "Flash point", desc: "ISO 2719 / ASTM D93" },
+			{ text: "Pour point", desc: "ISO 3016 / ASTM D97" },
+			{ text: "PCB-content", desc: "IEC 61619 / ASTM D4059" },
+			{ text: "Corrosive sulphur (copper strip)", desc: "IEC 62535 / ASTM D1275B" },
+			{ text: "Corrosive sulphur (silver strip)", desc: "DIN 51353" },
+			{ text: "DBDS content", desc: "IEC 62697-1 / ASTM" },
+			{ text: "Inhibitor content", desc: "IEC 60666 / ASTM D4768" },
+			{ text: "Metal passivator", desc: "IEC 60666" },
+			{ text: "Particle count", desc: "IEC 60970 / ASTM D6786" },
+			{ text: "Furan Analysis (with calculated DP)", desc: "IEC 61198 / ASTM D5837" },
+			{ text: "Methanol, Ethanol (with calculated DP)", desc: "ASTM D 7843" },
+			{ text: "Insulation paper DP and moisture content", desc: "IEC 60450 / ASTM D4243" },
+			{ text: "Other oil quality tests:    ", desc: "" },
 		];
+
+
 
 
 		// Toggle selection for a given fruit by name
@@ -88,8 +109,7 @@
 		$scope.defaultSample = {
 			Language: "English",
 			OilReportStandard: "IEC Standard",
-			OffLoad: "Yes",
-			OnLoad: "Yes", RequestedTests:[]
+			RequestedTests:[]
 		};
 
 		$scope.sample = angular.copy($scope.defaultSample);
@@ -128,11 +148,6 @@
 			$('#sampleModal').modal('show');
 		};
 
-		$scope.calcAge = function () {
-			if ($scope.sample.YearOfManufacture && $scope.s.SamplingDate) {
-				$scope.sample.OilAge = $scope.s.SamplingDate.getFullYear() - $scope.sample.YearOfManufacture;
-			}
-		}
 		// #endregion
 
 		$scope.doit = function () {

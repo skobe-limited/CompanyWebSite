@@ -34,23 +34,28 @@
 
 					<div class="col-sm">
 						<div class="form-group">
-							<label>Customer Name</label>
-							<input required type="text" class="form-control" ng-model="s.CustomerName">
+							<label>Client</label>
+							<input required type="text" class="form-control" ng-model="s.Client">
 						</div>
 					</div>
 
 					<div class="col-sm">
 						<div class="form-group">
-							<label>Name of the substation</label>
+							<label>Name Of The Substation</label>
 							<input required type="text" class="form-control" ng-model="s.SubstationName">
 						</div>
 					</div>
 
+					<div class="col-sm">
+						<div class="form-group">
+							<label>Project Name</label>
+							<input required type="text" class="form-control" ng-model="s.ProjectName">
+						</div>
+					</div>
 
 				</div>
 
 				<div class="row">
-
 					<div class="col-sm">
 						<div class="form-group">
 							<label>Country</label>
@@ -60,20 +65,16 @@
 
 					<div class="col-sm">
 						<div class="form-group">
-							<label>Sampling Date</label>
-							<input required type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="s.SamplingDate">
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-
-					<div class="col-sm">
-						<div class="form-group">
 							<label>Company Name</label>
 							<input required type="text" class="form-control" ng-model="s.CompanyName">
 						</div>
 					</div>
+				</div>
+
+
+
+				<div class="row">
+
 
 					<div class="col-sm">
 						<div class="form-group">
@@ -81,9 +82,6 @@
 							<input required type="text" class="form-control" ng-model="s.ContactPersonName">
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
 
 					<div class="col-sm">
 						<div class="form-group">
@@ -109,11 +107,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!--<div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">Check me out</label>
-		</div>-->
 
 			</div>
 
@@ -148,7 +141,7 @@
 
 
 			<div class="card-footer">
-				<button ng-disabled="formInProgress||samplingForm.$invalid||s.samples.length==0" type="submit" class="btn btn-primary">{{submitButtonText}}</button>
+				<button ng-disabled="formInProgress||samplingForm.$invalid" type="submit" class="btn btn-primary">{{submitButtonText}}</button>
 				<a href="#" ng-click="reload()" class="btn btn-default">Clear</a>
 			</div>
 
@@ -168,25 +161,171 @@
 				</div>
 				<div class="modal-body">
 
+					<!--Transformer Data-->
+					<div class="card-body">
+						<h5 class="card-title">Transformer Data</h5>
+
+						<div class="row">
+							<div class="col-md">
+								<div class="form-group">
+									<label>Equipment Manufacturer</label>
+									<input type="text" class="form-control" ng-model="sample.EquipmentManufacturer">
+								</div>
+							</div>
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Serial Number</label>
+									<input required type="text" class="form-control" ng-model="sample.SerialNumber">
+								</div>
+							</div>
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Year Of Manufacture</label>
+									<input required type="text" class="form-control" placeholder="YYYY" ng-model="sample.YearOfManufacture">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md">
+								<div class="form-group">
+									<label>Rating (kVA/ KVAr)</label>
+									<input required type="text" class="form-control" ng-model="sample.Rating">
+								</div>
+							</div>
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Primary Voltage (kV)</label>
+									<input required type="text" class="form-control" ng-model="sample.PrimaryVoltage">
+								</div>
+							</div>
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Secondary Voltage (kV)</label>
+									<input required type="text" class="form-control" ng-model="sample.SecondaryVoltage">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Frequency (Hz)</label>
+									<select required class="form-control" ng-model="sample.Frequency">
+										<option value="">-- Please select--</option>
+										<option>50</option>
+										<option>60</option>
+
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Tap Changer Type</label>
+									<select required class="form-control" ng-model="sample.TapChangerType">
+										<option value="">-- Please select--</option>
+										<option>OCTC</option>
+										<option>OLTC</option>
+										<option>OCTC & OLTC</option>
+									</select>
+								</div>
+							</div>
+
+
+						</div>
+
+						<div class="row">
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Cooling Type</label>
+									<select required class="form-control" ng-model="sample.CoolingType">
+										<option value="">-- Please select--</option>
+										<option>ONAN</option>
+										<option>ONAF</option>
+										<option>OFAF</option>
+										<option>ODAF</option>
+										<option>OFWF</option>
+
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Oil Type</label>
+									<select required class="form-control" ng-model="sample.OilType">
+										<option value="">-- Please select--</option>
+										<option>Mineral</option>
+										<option>Silicon</option>
+										<option>Ester</option>
+										<option>Natural ester</option>
+
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Equipment Type</label>
+									<select required class="form-control" ng-model="sample.EquipmentType">
+										<option value="">-- Please select--</option>
+										<option>Transformer / Autotransformer</option>
+										<option>Reactor</option>
+										<option>Furnace Transformer</option>
+										<option>Rectifier Transformer</option>
+										<option>Track side Transformer</option>
+										<option>On board Transformer</option>
+										<option>Others</option>
+
+									</select>
+								</div>
+							</div>
+
+
+						</div>
+
+
+					</div>
+
 					<!--Sample Data-->
 					<div class="card-body">
 						<h5 class="card-title">Sample Data</h5>
 
 
-						<!--<p class="card-text">Please enter following information</p>-->
 
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
 									<label>Sample Nr (if any)</label>
 									<input type="text" class="form-control" ng-model="sample.SampleNr">
 								</div>
 							</div>
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
-									<label>Oil Temperature when sampling (°C)</label>
+									<label>Sampling Date</label>
+									<input type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="sample.SamplingDate">
+								</div>
+							</div>
+
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Oil Temperature (°C)</label>
 									<input required type="text" class="form-control" ng-model="sample.OilTemp">
 								</div>
 							</div>
@@ -196,21 +335,21 @@
 
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
-									<label>Ambient Temperature when sampling (°C)</label>
+									<label>Ambient Temperature (°C)</label>
 									<input required type="text" class="form-control" ng-model="sample.AmbientTemp">
 								</div>
 							</div>
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
 									<label>Humidity (%)</label>
 									<input required type="text" class="form-control" ng-model="sample.Humidity">
 								</div>
 							</div>
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
 									<label>Oil Name</label>
 									<select required class="form-control" ng-model="sample.OilName">
@@ -266,19 +405,35 @@
 
 						</div>
 
+						<!--Oil Report-->
+						<h5 class="card-title">Oil Report & Analysis</h5>
+
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
-									<label>Requested Test(s)</label>
-									<br />
-									<label ng-repeat="item in testList" class="small" style="display:inline-block;margin-right:10px;">
-										<input type="checkbox"
-											   name="selectedTests[]"
-											   value="{{item}}"
-											   ng-checked="sample.RequestedTests.indexOf(item) > -1"
-											   ng-click="toggleSelection(item)"> {{item}}
-									</label>
+									<label>Oil Report Standard</label>
+									<select required class="form-control" ng-model="sample.OilReportStandard">
+										<option>IEC Standard</option>
+										<option>ASTM Standard</option>
+
+
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md">
+								<div class="form-group">
+									<label>Place Of Sampling</label>
+									<select required class="form-control" ng-model="sample.PlaceOfSampling">
+										<option value="">-- Please select--</option>
+										<option>Top of the tank</option>
+										<option>On load tap changer</option>
+										<option>Bottom of the tank</option>
+										<option>Middle Of the tank</option>
+										<option>Other compartment</option>
+
+									</select>
 								</div>
 							</div>
 
@@ -286,9 +441,9 @@
 
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
-									<label>Reason for Sampling</label>
+									<label>Reason For Sampling</label>
 									<br />
 									<label class="radio-inline small">
 										<input type="radio" name="reasonForSampling" value="Failure" ng-model="sample.ReasonForSampling"> Failure
@@ -304,11 +459,9 @@
 
 						</div>
 
-
-
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
 									<label>Report Language</label>
 									<select required class="form-control" ng-model="sample.Language">
@@ -325,205 +478,46 @@
 							</div>
 
 
-							<div class="col-sm" ng-show="sample.Language=='Other'">
+							<div class="col-md" ng-show="sample.Language=='Other'">
 								<div class="form-group">
-									<label>Please specify other language</label>
+									<label>Please Specify Other Language</label>
 									<input ng-required="sample.Language=='Other'" type="text" class="form-control" ng-model="sample.LanguageOther">
 								</div>
 							</div>
 
 						</div>
 
-
-					</div>
-
-					<!--Oil Report-->
-					<div class="card-body">
-						<h5 class="card-title">Oil Report</h5>
-
 						<div class="row">
 
-							<div class="col-sm">
+							<div class="col-md">
 								<div class="form-group">
-									<label>Oil Report Standard</label>
-									<select required class="form-control" ng-model="sample.OilReportStandard">
-										<option>IEC Standard</option>
-										<option>ASTM Standard</option>
+									<label>Requested Test(s)</label>
+									<br />
 
-
-									</select>
+									<table class="table table-striped small">
+										<tr ng-repeat="item in testList">
+											<td>
+												<label>
+													<input type="checkbox"
+														   name="selectedTests[]"
+														   value="{{item.text}}"
+														   ng-checked="sample.RequestedTests.indexOf(item.text) > -1"
+														   ng-click="toggleSelection(item.text)">
+												</label>
+											</td>
+											<td>{{item.text}}</td>
+											<td>{{item.desc}}</td>
+										</tr>
+									</table>
 								</div>
 							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Place of sampling</label>
-									<select required class="form-control" ng-model="sample.PlaceOfSampling">
-										<option value="">-- Please select--</option>
-										<option>Top of the tank</option>
-										<option>On load tap changer</option>
-										<option>Bottom of the tank</option>
-										<option>Middle Of the tank</option>
-										<option>Other compartment</option>
-
-									</select>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<!--Transformer Data-->
-					<div class="card-body">
-						<h5 class="card-title">Transformer Data</h5>
-
-						<div class="row">
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Rating (kVA/ KVAr)</label>
-									<input required type="text" class="form-control" ng-model="sample.Rating">
-								</div>
-							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Primary voltage (kV)</label>
-									<input required type="text" class="form-control" ng-model="sample.PrimaryVoltage">
-								</div>
-							</div>
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Secondary Voltage (kV)</label>
-									<input required type="text" class="form-control" ng-model="sample.SecondaryVoltage">
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Frequency (Hz)</label>
-									<select required class="form-control" ng-model="sample.Frequency">
-										<option value="">-- Please select--</option>
-										<option>50</option>
-										<option>60</option>
-
-									</select>
-								</div>
-							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Serial number</label>
-									<input required type="text" class="form-control" ng-model="sample.SerialNumber">
-								</div>
-							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Year of Manufacture</label>
-									<input required type="text" class="form-control" ng-change="calcAge()" placeholder="YYYY" ng-model="sample.YearOfManufacture">
-								</div>
-							</div>
-
-						</div>
-
-						<div class="row">
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Off circuit tap changer</label>
-									<select required class="form-control" ng-model="sample.OffLoad">
-										<option>Yes</option>
-										<option>No</option>
-
-									</select>
-								</div>
-							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>On load tap changer</label>
-									<select required class="form-control" ng-model="sample.OnLoad">
-										<option>Yes</option>
-										<option>No</option>
-
-									</select>
-								</div>
-							</div>
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Oil Age</label>
-									<input type="text" class="form-control" ng-model="sample.OilAge" disabled>
-								</div>
-							</div>
-
-
-						</div>
-
-						<div class="row">
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Cooling Type</label>
-									<select required class="form-control" ng-model="sample.CoolingType">
-										<option value="">-- Please select--</option>
-										<option>ONAN</option>
-										<option>ONAF</option>
-										<option>OFAF</option>
-										<option>ODAF</option>
-										<option>OFWF</option>
-
-									</select>
-								</div>
-							</div>
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Oil Type</label>
-									<select required class="form-control" ng-model="sample.OilType">
-										<option value="">-- Please select--</option>
-										<option>Mineral</option>
-										<option>Silicon</option>
-										<option>Ester</option>
-										<option>Natural ester</option>
-
-									</select>
-								</div>
-							</div>
-
-
-							<div class="col-sm">
-								<div class="form-group">
-									<label>Equipment Type</label>
-									<select required class="form-control" ng-model="sample.EquipmentType">
-										<option value="">-- Please select--</option>
-										<option>Transformer / Autotransformer</option>
-										<option>Reactor</option>
-										<option>Furnace Transformer</option>
-										<option>Rectifier Transformer</option>
-										<option>Track side Transformer</option>
-										<option>On board Transformer</option>
-										<option>Others</option>
-
-									</select>
-								</div>
-							</div>
-
 
 						</div>
 
 
 					</div>
+
+
 
 				</div>
 				<div class="modal-footer">

@@ -33,52 +33,49 @@
 
 			<div class="row">
 
-				<div class="col-sm">
-					<label>Customer Name</label><span>{{s.CustomerName}}</span>
+				<div class="col-md-4">
+					<label>Client</label><span>{{s.Client}}</span>
 				</div>
 
-				<div class="col-sm">
+				<div class="col-md-4">
 					<label>Name of the substation</label>
 					<span>{{s.SubstationName}}</span>
+				</div>
+				<div class="col-md-4">
+					<label>Project Name</label>
+					<span>{{s.ProjectName}}</span>
 				</div>
 
 
 			</div>
 
 			<div class="row">
-
-				<div class="col-sm">
+				<div class="col-md-4">
 					<label>Country</label>
 					<span>{{s.Country}}</span>
 				</div>
 
-				<div class="col-sm">
-					<label>Sampling Date</label>
-					<span>{{s.SamplingDate}}</span>
-				</div>
-			</div>
 
-			<div class="row">
-
-				<div class="col-sm">
+				<div class="col-md-4">
 					<label>Company Name</label>
 					<span>{{s.CompanyName}}</span>
 				</div>
 
-				<div class="col-sm">
-					<label>Contact Person Name</label>
-					<span>{{s.ContactPersonName}}</span>
-				</div>
 			</div>
 
 			<div class="row">
 
-				<div class="col-sm">
+				<div class="col-md-4">
+					<label>Contact Person Name</label>
+					<span>{{s.ContactPersonName}}</span>
+				</div>
+
+				<div class="col-md-4">
 					<label>Phone</label>
 					<span>{{s.Phone}}</span>
 				</div>
 
-				<div class="col-sm">
+				<div class="col-md-4">
 					<label>E-Mail</label>
 					<span>{{s.Email}}</span>
 				</div>
@@ -111,111 +108,40 @@
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show" ng-class="{'active':$first}" ng-repeat="sample in s.samples" id="tab{{$index}}" role="tabpanel">
 
-						<!--Sample Data-->
-						<div class="card-body">
-							<h5 class="card-title">Sample Data</h5>
-
-							<div class="row">
-								<div class="col-sm">
-									<label>Sample Nr (if any)</label>
-									<span>{{sample.SampleNr}}</span>
-								</div>
-								<div class="col-sm">
-									<label>Oil Temperature when sampling (°C)</label>
-									<span>{{sample.OilTemp}}</span>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Ambient Temperature when sampling (°C)</label>
-									<span>{{sample.AmbientTemp}}</span>
-								</div>
-
-								<div class="col-sm">
-									<label>Humidity (%)</label>
-									<span>{{sample.AmbientTemp}}</span>
-								</div>
-
-								<div class="col-sm">
-									<label>Oil Name</label>
-									<span>{{sample.OilName}}</span>
-								</div>
-
-							</div>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Requested Tests</label>
-									<span>{{sample.RequestedTests}}</span>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Reason for Sampling</label>
-									<span>{{sample.ReasonForSampling}}</span>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Report Language</label>
-									<span>{{sample.Language}}</span>
-								</div>
-
-
-								<div class="col-sm" ng-show="sample.Language=='Other'">
-									<label>Please specify other language</label>
-									<span>{{sample.LanguageOther}}</span>
-								</div>
-
-							</div>
-
-
-						</div>
-
-						<!--Oil Report-->
-						<div class="card-body">
-							<h5 class="card-title">Oil Report</h5>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Oil Report Standard</label>
-									<span>{{sample.OilReportStandard}}</span>
-								</div>
-
-								<div class="col-sm">
-									<label>Place of sampling</label>
-									<span>{{sample.PlaceOfSampling}}</span>
-								</div>
-
-							</div>
-
-						</div>
-
 						<!--Transformer Data-->
 						<div class="card-body">
 							<h5 class="card-title">Transformer Data</h5>
 
 							<div class="row">
-								<div class="col-sm">
+								<div class="col-md-4">
+									<label>Equipment Manufacturer</label>
+									<span>{{sample.EquipmentManufacturer}}</span>
+								</div>
+
+								<div class="col-md-4">
+									<label>Serial Number</label>
+									<span>{{sample.SerialNumber}}</span>
+								</div>
+
+								<div class="col-md-4">
+									<label>Year Of Manufacture</label>
+									<span>{{sample.YearOfManufacture}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
 									<label>Rating (kVA/ KVAr)</label>
 									<span>{{sample.Rating}}</span>
 								</div>
 
-								<div class="col-sm">
-									<label>Primary voltage (kV)</label>
+								<div class="col-md-4">
+									<label>Primary Voltage (kV)</label>
 									<span>{{sample.PrimaryVoltage}}</span>
 								</div>
 
 
-								<div class="col-sm">
+								<div class="col-md-4">
 									<label>Secondary Voltage (kV)</label>
 									<span>{{sample.SecondaryVoltage}}</span>
 								</div>
@@ -224,55 +150,33 @@
 							<div class="row">
 
 
-								<div class="col-sm">
+								<div class="col-md-4">
 									<label>Frequency (Hz)</label>
 									<span>{{sample.Frequency}}</span>
 								</div>
 
-								<div class="col-sm">
-									<label>Serial number</label>
-									<span>{{sample.SerialNumber}}</span>
-								</div>
 
-								<div class="col-sm">
-									<label>Year of Manufacture</label>
-									<span>{{sample.YearOfManufacture}}</span>
-								</div>
 
-							</div>
-
-							<div class="row">
-
-								<div class="col-sm">
-									<label>Off circuit tap changer</label>
-									<span>{{sample.OffLoad}}</span>
-								</div>
-
-								<div class="col-sm">
-									<label>On load tap changer</label>
-									<span>{{sample.OnLoad}}</span>
-								</div>
-
-								<div class="col-sm">
-									<label>Oil Age</label>
-									<span>{{sample.OilAge}}</span>
+								<div class="col-md-4">
+									<label>Tap Changer Type</label>
+									<span>{{sample.TapChangerType}}</span>
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="col-sm">
+								<div class="col-md-4">
 									<label>Cooling Type</label>
 									<span>{{sample.CoolingType}}</span>
 								</div>
 
 
-								<div class="col-sm">
+								<div class="col-md-4">
 									<label>Oil Type</label>
 									<span>{{sample.OilType}}</span>
 								</div>
 
 
-								<div class="col-sm">
+								<div class="col-md-4">
 									<label>Equipment Type</label>
 									<span>{{sample.EquipmentType}}</span>
 								</div>
@@ -280,6 +184,98 @@
 
 
 						</div>
+
+						<!--Sample Data-->
+						<div class="card-body">
+							<h5 class="card-title">Sample Data</h5>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label>Sample Nr (if any)</label>
+									<span>{{sample.SampleNr}}</span>
+								</div>
+								<div class="col-md-4">
+									<label>Sampling Date</label>
+									<span>{{sample.SamplingDate}}</span>
+								</div>
+								<div class="col-md-4">
+									<label>Oil Temperature (°C)</label>
+									<span>{{sample.OilTemp}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col-md-4">
+									<label>Ambient Temperature (°C)</label>
+									<span>{{sample.AmbientTemp}}</span>
+								</div>
+
+								<div class="col-md-4">
+									<label>Humidity (%)</label>
+									<span>{{sample.AmbientTemp}}</span>
+								</div>
+
+								<div class="col-md-4">
+									<label>Oil Name</label>
+									<span>{{sample.OilName}}</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="card-body">
+
+							<h5 class="card-title">Oil Report</h5>
+
+							<div class="row">
+
+								<div class="col-md-4">
+									<label>Oil Report Standard</label>
+									<span>{{sample.OilReportStandard}}</span>
+								</div>
+
+								<div class="col-md-4">
+									<label>Place Of Sampling</label>
+									<span>{{sample.PlaceOfSampling}}</span>
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-md-4">
+									<label>Reason For Sampling</label>
+									<span>{{sample.ReasonForSampling}}</span>
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col-md-4">
+									<label>Report Language</label>
+									<span>{{sample.Language}}</span>
+								</div>
+
+
+								<div class="col-md-4" ng-show="sample.Language=='Other'">
+									<label>Please Specify Other Language</label>
+									<span>{{sample.LanguageOther}}</span>
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-md-4">
+									<label>Requested Tests</label>
+									<span>{{sample.RequestedTests}}</span>
+								</div>
+							</div>
+						</div>
+
+
 
 
 					</div>
