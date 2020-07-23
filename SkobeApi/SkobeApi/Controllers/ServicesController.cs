@@ -103,7 +103,7 @@ namespace SkobeApi.Controllers
 				StringBuilder body = new StringBuilder();
 				body.Append("<h3>" + os.CompanyName + "</h3>");
 				body.Append("<p>Project Name: <b>" + os.ProjectName + "</b></p>");
-				body.Append("<p><a href='http://skobe.co.uk/services/aydas/oilsampling/ViewForm.html?FormId="+newId.ToString()+"'>Click here</a> to view form...</p>");
+				body.Append("<p><a href='https://aydas.co.uk/samplingform/ViewForm.html?FormId=" + newId.ToString()+"'>Click here</a> to view form...</p>");
 				h.SendMail("ahmet@aydas.co.uk", "Oil Sampling Form", body.ToString());
 				h.SendMail("cagatay.bulanik@gmail.com", "Oil Sampling Form", body.ToString());
 				return Ok("OK");

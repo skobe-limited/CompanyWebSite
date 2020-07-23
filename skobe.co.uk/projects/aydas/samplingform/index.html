@@ -183,7 +183,9 @@
 							<div class="col-md">
 								<div class="form-group">
 									<label>Year Of Manufacture</label>
-									<input required type="text" class="form-control" placeholder="YYYY" ng-model="sample.YearOfManufacture">
+									<select required class="form-control" ng-model="sample.YearOfManufacture" ng-options="y as y for y in yearList">
+										<option value="">-- Please select--</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -345,7 +347,7 @@
 							<div class="col-md">
 								<div class="form-group">
 									<label>Humidity (%)</label>
-									<input required type="text" class="form-control" ng-model="sample.Humidity">
+									<input required type="number" class="form-control" placeholder=" >= 0" ng-model="sample.Humidity">
 								</div>
 							</div>
 
@@ -522,7 +524,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addSample()">OK</button>
+					<button type="button" class="btn btn-primary" ng-click="addSample()">OK</button>
 				</div>
 			</div>
 		</div>

@@ -2,12 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\projects\\aydas",
-    "\\projects\\aydas\\js",
-    "\\services",
-    "\\services\\aydas",
-    "\\services\\aydas\\oilsampling"
+    "\\projects",
+    "\\projects\\aydas"
   ],
-  "SelectedNode": "\\services\\aydas\\oilsampling\\viewForm.html",
+  "SelectedNode": "\\projects\\aydas\\index.html",
   "PreviewInSolutionExplorer": false
 }

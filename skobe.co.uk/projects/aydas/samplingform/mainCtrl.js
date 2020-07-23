@@ -3,7 +3,7 @@
 	var app = angular.module('app', []);
 
 	app.factory('myRequester', function ($q, $http) {
-		var urlx = "http://skobe.co.uk/api/services/";
+		var urlx = "https://skobe.co.uk/api/services/";
 		if (window.location.href.indexOf(".local") > -1) {
 			urlx = "http://localhost:62238/services/";
 		}
@@ -88,7 +88,11 @@
 			{ text: "Other oil quality tests:    ", desc: "" },
 		];
 
-
+		$scope.yearList = [];
+		var currentDate = new Date();
+		for (var y = 1900; y < currentDate.getFullYear() + 1; y++) {
+			$scope.yearList.push(y);
+		}
 
 
 		// Toggle selection for a given fruit by name
@@ -122,14 +126,29 @@
 		};
 
 		$scope.addSample = function () {
-			$scope.sample.RequestedTests = $scope.sample.RequestedTests.join('/');
-			if ($scope.itemIndex == -1) {
-				$scope.s.samples.push($scope.sample);
+			var msg = "";
+			if ($scope.sample.RequestedTests.length == 0) {
+				msg += "\n Select requested tests";
+			}
+			if ($scope.sample.Humidity < 0) {
+				msg += "\n Humidity value must be >= 0";
+			}
+
+			if (msg == "") {
+				$scope.sample.RequestedTests = $scope.sample.RequestedTests.join('/');
+				if ($scope.itemIndex == -1) {
+					$scope.s.samples.push($scope.sample);
+				}
+				else {
+					$scope.s.samples[$scope.itemIndex] = angular.copy($scope.sample);
+				}
+				$scope.resetSample();
+				$('#sampleModal').modal('hide');
 			}
 			else {
-				$scope.s.samples[$scope.itemIndex] = angular.copy($scope.sample);
+				alert(msg);
 			}
-			$scope.resetSample();
+
 		};
 
 		$scope.removeSample = function (index) {
@@ -156,7 +175,8 @@
 			myRequester.postData("OilSamplingSave", $scope.s).then(function (data) {
 				if (data.data == "OK") {
 					alert("Your form submitted.");
-					$scope.reload();
+					//$scope.reload();
+					$scope.s.samples = [];
 				}
 				else {
 					alert("Some error(s) ocurred :(\n\nPlease try again later.");
